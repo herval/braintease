@@ -1,0 +1,8 @@
+- login with facebook or twitter
+- submit puzzle
+- vote on puzzle
+- submit solution
+- comment on solution
+- vote on solution
+- see puzzle
+- see solutions

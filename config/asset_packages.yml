@@ -1,0 +1,10 @@
+javascripts: 
+- base: 
+  - jquery.min
+  - application
+  - rails
+stylesheets: 
+- base:
+  - omnisocial
+  - application
+  - plain

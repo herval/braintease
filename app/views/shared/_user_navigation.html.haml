@@ -1,0 +1,15 @@
+%ul
+  %li.questions
+    =link_to "Puzzles", puzzles_path
+  / %li.tags
+  /   =link_to t("layouts.application.tags"), tags_questions_path
+  %li.users
+    =link_to "Users", users_path
+  / %li.badges
+  /   =link_to t("layouts.application.badges"), badges_path
+  %li.unanswered
+    =link_to "Unanswered", unanswered_puzzles_path
+  / %li.pages.last
+  /   =link_to t("layouts.application.pages"), pages_path
+  %li.ask_question
+    =link_to "Post a Puzzle", new_puzzle_path, :rel => 'nofollow'
