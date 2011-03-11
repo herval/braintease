@@ -1,0 +1,17 @@
+
+-content_for :subtabs do
+  .navtitle
+    You need to login first...
+-content_for :sidebar do
+  = render :partial => 'shared/default_teaser'
+
+  / -if !current_group.question_help.empty?
+  /   .help
+  /     %h4
+  /       = t(".how_to_ask")
+  /     =current_group.question_help
+
+
+
+= big_twitter_login_button
+= big_facebook_login_button

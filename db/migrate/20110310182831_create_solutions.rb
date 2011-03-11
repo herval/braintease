@@ -4,6 +4,7 @@ class CreateSolutions < ActiveRecord::Migration
       t.text :code
       t.text :notes
       t.integer :user_id
+      t.integer :puzzle_id
       t.timestamps
     end
   end

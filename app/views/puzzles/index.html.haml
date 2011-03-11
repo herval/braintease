@@ -23,10 +23,7 @@
 
 -content_for :sidebar do
 
-  .block.notice
-    %h4= link_to "What is Braintea.se?", "/"
-    Braintea.se is a social repository of <b>programming puzzles</b>, <b>code katas</b> and <b>logic problems</b> that can be solved by means of a programming language.
-    %br
+  = render :partial => 'shared/default_teaser'
     
   / -if logged_in?
   /   = render :partial => "shared/language_filter"

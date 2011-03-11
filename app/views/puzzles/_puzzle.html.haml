@@ -22,7 +22,7 @@
       /     =format_number(puzzle.votes_average)
       /   .text
       /     Votes
-      .box.answers{:class => class_for_puzzle(puzzle), :title => puzzle.accepted ? t(".accepted_tooltip") : "" }
+      .box.answers{:class => class_for_puzzle(puzzle), :title => "" }
         .counter
           =format_number(puzzle.answers_count)
         .text
@@ -74,7 +74,7 @@
   -cache("mini_puzzle_on_index_#{puzzle.id}_#{I18n.locale}") do
     %li.item{:class => "#{class_for_puzzle(puzzle)} #{local_assigns[:lite] ? 'lite' : ''}"}
       .stats
-        .box.answers{:class => puzzle.accepted ? "accepted" : "" }
+        .box.answers{:class => "accepted" }
           .counter
             =format_number(puzzle.answers_count)
           -if !local_assigns[:lite]

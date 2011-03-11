@@ -67,7 +67,7 @@ module ApplicationHelper
         messages << content_tag('li', flash_text, :class => key)
       end
 
-      out << content_tag('ul', messages.join("\n"), :class => "message "+key.to_s) unless messages.empty?
+      out << raw(content_tag('ul', messages.join("\n"), :class => "message "+key.to_s)) unless messages.empty?
     end
 
     attrs = {:id => options[:id]} if options[:id]

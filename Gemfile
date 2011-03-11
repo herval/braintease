@@ -6,7 +6,7 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'omnisocial'
+gem 'omnisocial', :git => 'git://github.com/herval/omnisocial.git'
 gem 'mysql2'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'haml'
@@ -15,6 +15,13 @@ gem "compass"
 gem "fancy-buttons"
 gem "compass-colors"
 gem 'will_paginate'
+gem 'dynamic_form'
+gem 'acts_as_commentable'
+# gem 'textile'
+# gem 'markdown'
+gem 'capistrano'
+gem 'inherited_resources'
+
 
 
 # Use unicorn as the web server

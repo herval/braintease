@@ -31,7 +31,13 @@ Codekata::Application.routes.draw do
   #     resource :seller
   #   end
   
-  resources :users
+  resources :users do
+    collection do
+      get 'logout'
+      get 'login'
+    end
+  end
+  
   resources :puzzles do
     collection do
       get 'unanswered'

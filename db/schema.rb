@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20110310183035) do
     t.text     "code"
     t.text     "notes"
     t.integer  "user_id"
+    t.integer  "puzzle_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

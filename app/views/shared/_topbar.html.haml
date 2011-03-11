@@ -3,21 +3,25 @@
     .entry
       %ul.combobox
         %li
-          = image_tag(current_user.image)
+          = image_tag(current_user.picture_url, :width => 20)
           = link_to(h(current_user.login), user_path(current_user))
-          %span.reputation{:title => "Reputation"}=current_user.reputation
-          %ul
-            %li
-              =link_to "My Profile", user_path(current_user)
-            / %li
-            /   =link_to t("layouts.application.settings"), settings_path
-      |
-    -[].each do |link|
-      .entry
-        =link
-        |
-    / .entry
-    /  =link_to t("layouts.application.logout"), destroy_user_session_path
+          / %span.reputation{:title => "Reputation"}=current_user.reputation
+          / %ul
+          /   %li
+          /     =link_to "My Profile", user_path(current_user)
+          /   / %li
+          /   /   =link_to t("layouts.application.settings"), settings_path
+          |
+          =link_to "Logout", logout_users_path
+
+    / -[].each do |link|
+    /   .entry
+    /     =link
+    / / .entry
+  - else
+    = twitter_login_button
+    = facebook_login_button
+
   / .entry
   /   - form_tag search_path, :method => :get, :style => "margin-left: 20px; max-width: 10%; display: inline" do
   /     = text_field_tag :q, params[:q], :id => "search-field"

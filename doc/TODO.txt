@@ -1,4 +1,4 @@
-- login with facebook or twitter
+X login with facebook or twitter
 - submit puzzle
 - vote on puzzle
 - submit solution
@@ -6,3 +6,5 @@
 - vote on solution
 - see puzzle
 - see solutions
+
+- share on twitter/facebook
