@@ -4,7 +4,7 @@ Omnisocial.setup do |config|
   config.twitter 'KLJVREAFxCd3ogPzMFm1LA', 'rQLJG8K8dH9q40r8tdgLqDedflvYLmDKoLDXiOClcck'
   
   # ==> Facebook
-  # config.facebook 'APP_KEY', 'APP_SECRET', :scope => 'publish_stream'
+  config.facebook '139582682764284', '1d80803fca15a17c16219ea6d27218ed', :scope => 'publish_stream'
   
   if Rails.env.production?
     

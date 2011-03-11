@@ -2,11 +2,7 @@ module ApplicationHelper
   
   # TODO devise?
   def logged_in?
-    true
-  end
-  
-  def current_user
-    User.new
+    current_user?
   end
   
   def class_for_puzzle(question)

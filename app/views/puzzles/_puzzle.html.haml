@@ -17,11 +17,11 @@
   %li.entry.item{:class => class_for_puzzle(puzzle)}
     / puzzle Stats
     .stats
-      .box.votes
-        .counter{:class => class_for_number(puzzle.votes_average) }
-          =format_number(puzzle.votes_average)
-        .text
-          Votes
+      / .box.votes
+      /   .counter{:class => class_for_number(puzzle.votes_average) }
+      /     =format_number(puzzle.votes_average)
+      /   .text
+      /     Votes
       .box.answers{:class => class_for_puzzle(puzzle), :title => puzzle.accepted ? t(".accepted_tooltip") : "" }
         .counter
           =format_number(puzzle.answers_count)
