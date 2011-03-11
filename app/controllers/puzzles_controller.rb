@@ -1,5 +1,5 @@
 class PuzzlesController < ApplicationController
   def index
-    @puzzles = Puzzle.all
+    @puzzles = Puzzle.all.paginate
   end
 end

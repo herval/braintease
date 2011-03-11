@@ -14,6 +14,7 @@ gem 'sass'
 gem "compass"
 gem "fancy-buttons"
 gem "compass-colors"
+gem 'will_paginate'
 
 
 # Use unicorn as the web server

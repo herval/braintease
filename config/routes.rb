@@ -37,6 +37,8 @@ Codekata::Application.routes.draw do
       get 'unanswered'
     end
   end
+  
+  resource :votes
 
   # Sample resource route with more complex sub-resources
   #   resources :products do

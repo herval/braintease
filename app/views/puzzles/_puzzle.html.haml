@@ -1,0 +1,86 @@
+-title = h(puzzle.title)
+/ -if puzzle.closed
+/   -title += " [#{t("closed", :scope => "activerecord.attributes.puzzle").upcase}]"
+
+-if !local_assigns[:mini]
+  -owner = nil
+  / -if puzzle.last_target.present?
+  /   -last_target = puzzle.last_target
+  /   -if last_target.respond_to?(:updated_by) && last_target.updated_by.present?
+  /     -owner= last_target.updated_by
+  /   -else
+  /     -owner= last_target.user
+  / -else
+  /   -last_target = puzzle
+  /   -owner = puzzle.user unless puzzle.anonymous
+
+  %li.entry.item{:class => class_for_puzzle(puzzle)}
+    / puzzle Stats
+    .stats
+      .box.votes
+        .counter{:class => class_for_number(puzzle.votes_average) }
+          =format_number(puzzle.votes_average)
+        .text
+          Votes
+      .box.answers{:class => class_for_puzzle(puzzle), :title => puzzle.accepted ? t(".accepted_tooltip") : "" }
+        .counter
+          =format_number(puzzle.answers_count)
+        .text
+          Answers
+      .box.views
+        .counter{:class => class_for_number(puzzle.views_count) }
+          =format_number(puzzle.views_count)
+        .text
+          Views
+    / puzzle Summary
+    .summary
+      .left.vote-icon
+        -if true #unless puzzle.closed
+          -if logged_in? && (vote = current_user.vote_on(puzzle))
+            -if vote.value < 0
+              = image_tag "edit-delete.png"
+            -else
+              = image_tag "dialog-ok-apply.png"
+          -elsif current_user != puzzle.user
+            -form_tag votes_path, :class => "vote-up-form" do
+              .fields
+                = hidden_field_tag "voteable_type", puzzle.class.name, :id => "voteable_type_#{puzzle.id}"
+                = hidden_field_tag "voteable_id", puzzle.id, :id =>  "voteable_id_#{puzzle.id}"
+                = hidden_field_tag "source", puzzles_path, :id =>  "source_#{puzzle.id}"
+                = image_submit_tag("dialog-ok.png", :name=>"vote_up", :value=>"1", :title => "Click to vote up", :class => "quick-vote-button")
+
+      -cache("puzzle_on_index_#{puzzle.id}_#{I18n.locale}") do
+        %h3= link_to title, puzzle_path(puzzle), :title => truncate(strip_tags(puzzle.description), :length => 200)
+        .tag-list
+          / -if puzzle.tags.empty? && logged_in? && (current_user.can_modify?(@puzzle) || current_user.can_retag_others_puzzles_on?(current_group))
+          /   %span.retag
+          /     = link_to t('puzzles.show.retag'), retag_puzzle_path(puzzle), :id => 'retag', :class => "important"
+          / -puzzle.first_tags.each do |tag|
+          /   %span.tag{:class => "tag_#{h(tag)}"}
+          /     = link_to h(tag), url_for(:controller => "puzzles", :action => "index", :tags => tag), :rel => "tag", :title => t("puzzles.tags.tooltip", :tag => tag)
+
+      .owner-data
+        -if owner
+          =render :partial => "users/user_mini", :locals => {:user => owner}
+        -else
+          by Anonymous,
+        %strong.time_ago
+          = link_to "#{time_ago_in_words(puzzle.updated_at)} ago", puzzle_path(puzzle)+"##{puzzle.id}"
+        / -if puzzle.wiki
+        /   %span.wiki_flag
+        /     wiki
+    .clear
+-else
+  -cache("mini_puzzle_on_index_#{puzzle.id}_#{I18n.locale}") do
+    %li.item{:class => "#{class_for_puzzle(puzzle)} #{local_assigns[:lite] ? 'lite' : ''}"}
+      .stats
+        .box.answers{:class => puzzle.accepted ? "accepted" : "" }
+          .counter
+            =format_number(puzzle.answers_count)
+          -if !local_assigns[:lite]
+            .text
+              Answers
+      .summary
+        %h3
+          = link_to title, puzzle_path(puzzle)
+      .clear

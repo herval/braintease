@@ -12,4 +12,9 @@ class User < Omnisocial::User
   def reputation
     0
   end
+  
+  def vote_on(voteable)
+    self.votes.for_voteable(voteable).first
+  end
+  
 end

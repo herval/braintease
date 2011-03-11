@@ -9,6 +9,48 @@ module ApplicationHelper
     User.new
   end
   
+  def class_for_puzzle(question)
+    klass = ""
+
+    if question.accepted
+      klass << "accepted"
+    elsif !question.answered
+      klass << "unanswered"
+    end
+
+    if logged_in?
+      # if current_user.is_preferred_tag?(current_group, *question.tags)
+      #   klass << " highlight"
+      # end
+
+      if current_user == question.user
+        klass << " own_question"
+      end
+    end
+
+    klass
+  end
+
+  def class_for_number(number)
+    if number >= 1000 && number < 10000
+      "medium_number"
+    elsif number >= 10000
+      "big_number"
+    elsif number < 0
+      "negative_number"
+    end
+  end
+
+  def format_number(number)
+    if number < 1000
+      number.to_s
+    elsif number >= 1000 && number < 1000000
+      "%.01fK" % (number/1000.0)
+    elsif number >= 1000000
+      "%.01fM" % (number/1000000.0)
+    end
+  end
+      
   def show_flash_messages(options={})
     options = { :keys => [:warning, :notice, :message, :error],
                 :id => 'messages',

@@ -1,0 +1,53 @@
+-feed_url = url_for(:format => "atom", :tags => params[:tags])
+
+-content_for :rss do
+  %link{:rel=>"alternate", :type=>"application/atom+xml", :title => "atom", :href=> url_for(:format => "atom", :tags => params[:tags])}
+  %link{:rel=>"alternate", :type=>"application/atom+xml", :title => "atom", :href=> url_for(:format => "atom")}
+
+-content_for :subtabs do
+  .navtitle
+    Programming Puzzles
+    -if @questions
+      == (#{@questions.total_entries})
+
+  / %ul
+  /   %li.newest
+  /     = link_to "Newest", puzzles_path(:sort=>"newest"), :title => "Newly posted puzzles"
+  /   %li.hot
+  /     = link_to "Hot", puzzles_path(:sort=>"hot"), :title => "Most active and commented puzzles", :rel => "nofollow"
+  /   %li.votes
+  /     = link_to "Voted", puzzles_path(:sort=>"votes"), :title => "Most voted puzzles", :rel => "nofollow"
+  /   / %li.activity
+  /   /   = link_to "Active", puzzles_path(:sort=>"activity"), :title => t("questions.index.active_tooltip"), :rel => "nofollow"
+
+
+-content_for :sidebar do
+  / -if logged_in?
+  /   = render :partial => "shared/language_filter"
+
+  / = render :partial => "shared/current_tags"
+  / .block
+  /   %h3
+  /     = t('.tags', :default => [:"layout.application.tags", :"activerecord.attributes.user.tags", "tags"])
+  /   / .content
+  /   /   = render :partial => "shared/tag_list", :object => @tag_cloud
+
+/ = render :partial => "searches/search_box"
+
+/Questions
+%ul.items#questions
+  -if @puzzles.empty?
+    %li.highlight
+      No Puzzle registered
+      
+  -@puzzles.each do |question|
+    = render :partial => "puzzle", :object => question
+
+#additional_info
+  =will_paginate @puzzles
+
+  #help_us
+    Be the first to post a solution to our
+    =link_to "unanswered Puzzles", unanswered_puzzles_path
+
+  .clear
