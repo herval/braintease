@@ -32,6 +32,7 @@ Codekata::Application.routes.draw do
   #   end
   
   resources :users do
+    resource :comments
     collection do
       get 'logout'
       get 'login'
@@ -39,11 +40,12 @@ Codekata::Application.routes.draw do
   end
   
   resources :puzzles do
+    resource :comments
     collection do
       get 'unanswered'
     end
   end
-  
+    
   resource :votes
 
   # Sample resource route with more complex sub-resources

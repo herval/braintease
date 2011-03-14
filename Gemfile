@@ -22,6 +22,13 @@ gem 'acts_as_commentable'
 gem 'capistrano'
 gem 'inherited_resources'
 
+if RUBY_PLATFORM !~ /mswin|mingw/
+  gem "rdiscount"
+  # gem "ruby-stemmer"
+  gem "sanitize"
+else
+  gem "maruku"
+end
 
 
 # Use unicorn as the web server

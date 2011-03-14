@@ -1,10 +1,19 @@
 javascripts: 
 - base: 
-  - jquery.min
+  - jquery
+  - jquery.tools.min
+  - jquery-ui
+  - jquery.textarea
+  - jHtmlArea
+  - jquery.autocomplete
+  - jquery.autoSuggest
+  - jquery.notifyBar
+  - showdown
+  - highlight/prettify
   - application
   - rails
+  - modules/editor
 stylesheets: 
 - base:
   - omnisocial
   - application
-  - plain

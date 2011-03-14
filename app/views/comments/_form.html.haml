@@ -1,0 +1,10 @@
+.group
+  = label_tag :description, "Post a solution", :class => "label"
+  = hidden_field_tag "source", source, :id => "source_#{commentable.id}"
+  = hidden_field_tag "commentable_id", commentable.id
+  = hidden_field_tag "commentable_type", commentable.class.to_s
+
+  = text_area_tag :comment, markdown(@comment.comment), :class => "comment_text_area markdown_editor", :id => "comment_#{commentable.id}", :rows => 'auto', :cols => 'auto'
+  #markdown_preview.markdown
+    =markdown(@comment.comment)
+  %br.clear

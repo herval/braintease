@@ -2,6 +2,7 @@
 
 %span.fn.nickname
   -unless user.nil?
+    = image_tag(user.picture_url, :width => 20)
     =link_to h(user.login), user_path(user), :class => "user-link"
     / -if user.owner_of?(current_group)
     /   %span.ownerflair{:title => "admin"}
@@ -16,10 +17,10 @@
     %i disabled user
     / = t('users.deleted')
 
-%span.reputation{:title => "Reputation"}
-  -unless user.nil?
-    =user.reputation #_on(current_group)
-
+/ %span.reputation{:title => "Reputation"}
+/   -unless user.nil?
+/     =user.reputation #_on(current_group)
+/ 
 / -if local_assigns[:with_badges] != false
 /   -if gold.to_i > 0
 /     %span{:title => "#{gold} gold badges"}

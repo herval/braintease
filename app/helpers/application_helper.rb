@@ -1,31 +1,59 @@
 module ApplicationHelper
+
+  def markdown(txt, options = {})
+    raw = options.delete(:raw)
+    body = render_page_links(txt.to_s, options)
+    txt = if raw
+      (defined?(RDiscount) ? RDiscount.new(body) : Maruku.new(body)).to_html
+    else
+      (defined?(RDiscount) ? RDiscount.new(body, :smart, :strict) : Maruku.new(sanitize(body))).to_html
+    end
+
+    if options[:sanitize] != false
+      txt = defined?(Sanitize) ? Sanitize.clean(txt, SANITIZE_CONFIG) : sanitize(txt)
+    end
+    txt
+  end
   
   # TODO devise?
   def logged_in?
     current_user?
   end
   
-  def class_for_puzzle(question)
-    klass = ""
 
-    if question.accepted
-      klass << "accepted"
-    elsif !question.answered
-      klass << "unanswered"
+  def render_page_links(text, options = {})
+    in_controller = respond_to?(:logged_in?)
+
+    text.gsub!(/\[\[([^\,\[\'\"]+)\]\]/) do |m|
+      link = $1.split("|", 2)
+      %@<a href="#{link.last}</a>@
     end
 
-    if logged_in?
-      # if current_user.is_preferred_tag?(current_group, *question.tags)
-      #   klass << " highlight"
-      # end
+    return text if !in_controller
 
-      if current_user == question.user
-        klass << " own_question"
+    text.gsub(/%(\S+)%/) do |m|
+      case $1
+        when 'site'
+          group.domain
+        when 'site_name'
+          group.name
+        when 'current_user'
+          if logged_in?
+            link_to(current_user.login, user_path(current_user))
+          else
+            "anonymous"
+          end
+        when 'hottest_today'
+          question = Question.first(:activity_at.gt => Time.zone.now.yesterday, :order => "hotness desc, views_count asc", :group_id => group.id, :select => [:slug, :title])
+          if question.present?
+            link_to(question.title, question_path(question))
+          end
+        else
+          m
       end
     end
-
-    klass
   end
+
 
   def class_for_number(number)
     if number >= 1000 && number < 10000
@@ -67,7 +95,7 @@ module ApplicationHelper
         messages << content_tag('li', flash_text, :class => key)
       end
 
-      out << raw(content_tag('ul', messages.join("\n"), :class => "message "+key.to_s)) unless messages.empty?
+      content_tag('ul', messages.join("\n"), :class => "message "+key.to_s) unless messages.empty?
     end
 
     attrs = {:id => options[:id]} if options[:id]

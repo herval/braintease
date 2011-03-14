@@ -1,15 +1,26 @@
 class PuzzlesController < ApplicationController
   before_filter :require_login, :only => [:new, :create]
-  
+
   inherit_resources
   
   def index
-    @puzzles = Puzzle.all.paginate
+    @puzzles = Puzzle.all.paginate(:page => params[:page])
+  end
+  
+  def unanswered
+    @puzzles = Puzzle.all.select { |puzz| puzz.solutions.blank? }.paginate(:page => params[:page])
+    render 'index'
   end
   
   def show
     @puzzle = Puzzle.find(params[:id])
-    @solutions = @puzzle.solutions
+    @comments = @puzzle.comments
+  end
+
+  def create
+    @puzzle = Puzzle.new(params[:puzzle])
+    @puzzle.user = current_user
+    create!
   end
   
   # def new

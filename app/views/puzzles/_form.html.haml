@@ -20,12 +20,12 @@
 .group
   = f.label :description, "Puzzle *", :class => "label"
   / -if current_group.wysiwyg_editor
-  = f.text_area :description, :class => "text_area", :id => "wysiwyg_editor", :value => @puzzle.description
+  = f.text_area :description, :class => "text_area markdown_editor", :id => "markdown_editor", :value => markdown(@puzzle.description)
   / -else
   / = f.text_area :body, :class => "text_area", :id => "markdown_editor"
   / 
-  / #markdown_preview.markdown
-  /   =markdown(@puzzle.body)
+  #markdown_preview.markdown
+    =markdown(@puzzle.description)
 / 
 / -if current_group.language.nil? && AppConfig.enable_i18n
 /   .group

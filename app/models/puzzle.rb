@@ -1,13 +1,13 @@
 class Puzzle < ActiveRecord::Base
   acts_as_voteable
+  acts_as_commentable
   
   validates_presence_of :title, :description
   
   belongs_to :user
-  has_many :solutions
   
   def answered?
-    !self.solutions.blank?
+    !self.comments.blank?
   end
   
   def new?
@@ -18,8 +18,8 @@ class Puzzle < ActiveRecord::Base
     0
   end
   
-  def answers_count
-    0
+  def comments_count
+    comments.size
   end
   
   def views_count

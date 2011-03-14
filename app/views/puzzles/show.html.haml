@@ -1,7 +1,7 @@
 - @current_class = 'question hentry entry post'
 
 
-- question_body = @puzzle.description #find_and_preserve(shapado_auto_link(markdown(@puzzle.description.present? ? @puzzle.description : @puzzle.title)))
+- question_body = @puzzle.description.html_safe #find_and_preserve(shapado_auto_link(markdown(@puzzle.description.present? ? @puzzle.description : @puzzle.title)))
 
 - content_for :head do
   / %meta{:name => "keywords", :content => clean_seo_keywords(@puzzle.tags.dup, @puzzle.title)}
@@ -17,20 +17,20 @@
 - source = puzzle_path(@puzzle)
 = error_messages_for 'answer'
 
-#question-vote-col
-  / - if current_user && @puzzle.watch_for?(current_user)
-  /   = link_to image_tag("layer-visible-on.png", 'data-src' => "/images/layer-visible-off.png"), unwatch_puzzle_path(@puzzle), :class => 'question-action', "data-undo" =>  watch_puzzle_path(@puzzle), "data-title" => t(".watch_tooltip"), :title => t(".unwatch_tooltip"), :id => "watch-question"
-  / - else
-  /   = link_to image_tag("layer-visible-off.png", 'data-src' => "/images/layer-visible-on.png"), watch_puzzle_path(@puzzle), :title => t(".watch_tooltip"), :class => 'question-action', "data-undo" =>  unwatch_puzzle_path(@puzzle), "data-title" => t(".unwatch_tooltip"), :id => "watch-question"
-
-  =raw(vote_box(@puzzle, puzzle_path(@puzzle), false))#@puzzle.closed)
-
-  / - if logged_in? && favorite = current_user.favorite(@puzzle)
-  /   = link_to image_tag("favorites.png", 'data-src' => "/images/unfavorites.png"), unfavorite_puzzle_path(@puzzle), :id => "unfavorite-link", :title => t(".unfavorite_tooltip"), :class => 'question-action', "data-undo" =>  favorite_puzzle_path(@puzzle), "data-title" => t(".favorite_tooltip"), 'data-counter' => '.favorites_count'
-  / - else
-  /   = link_to image_tag("unfavorites.png", 'data-src' => "/images/favorites.png"), favorite_puzzle_path(@puzzle), :id => "favorite-link", :title => t(".favorite_tooltip"), :class => 'question-action', "data-undo" =>  unfavorite_puzzle_path(@puzzle), "data-title" => t(".unfavorite_tooltip"), 'data-counter' => '.favorites_count'
-  / .favorites_count
-  /   &= @puzzle.favorites_count
+/ #question-vote-col
+/   / - if current_user && @puzzle.watch_for?(current_user)
+/   /   = link_to image_tag("layer-visible-on.png", 'data-src' => "/images/layer-visible-off.png"), unwatch_puzzle_path(@puzzle), :class => 'question-action', "data-undo" =>  watch_puzzle_path(@puzzle), "data-title" => t(".watch_tooltip"), :title => t(".unwatch_tooltip"), :id => "watch-question"
+/   / - else
+/   /   = link_to image_tag("layer-visible-off.png", 'data-src' => "/images/layer-visible-on.png"), watch_puzzle_path(@puzzle), :title => t(".watch_tooltip"), :class => 'question-action', "data-undo" =>  unwatch_puzzle_path(@puzzle), "data-title" => t(".unwatch_tooltip"), :id => "watch-question"
+/ 
+/   =raw(vote_box(@puzzle, puzzle_path(@puzzle), false))#@puzzle.closed)
+/ 
+/   / - if logged_in? && favorite = current_user.favorite(@puzzle)
+/   /   = link_to image_tag("favorites.png", 'data-src' => "/images/unfavorites.png"), unfavorite_puzzle_path(@puzzle), :id => "unfavorite-link", :title => t(".unfavorite_tooltip"), :class => 'question-action', "data-undo" =>  favorite_puzzle_path(@puzzle), "data-title" => t(".favorite_tooltip"), 'data-counter' => '.favorites_count'
+/   / - else
+/   /   = link_to image_tag("unfavorites.png", 'data-src' => "/images/favorites.png"), favorite_puzzle_path(@puzzle), :id => "favorite-link", :title => t(".favorite_tooltip"), :class => 'question-action', "data-undo" =>  unfavorite_puzzle_path(@puzzle), "data-title" => t(".unfavorite_tooltip"), 'data-counter' => '.favorites_count'
+/   / .favorites_count
+/   /   &= @puzzle.favorites_count
 
 
 #question-body-col.commentable.markdown
@@ -59,7 +59,7 @@
         /   = gravatar(@puzzle.user.email.to_s, :size => 32)
       .user_data
         %span.asked_by
-          Posted by
+        / Posted by
         / -if @puzzle.anonymous
         /   =t("global.anonymous")
         / -else
@@ -141,19 +141,19 @@
   / - if logged_in?
   /   = link_to t("comments.shared.add_comment"), new_question_comment_path(@puzzle), :id => "add_comment_link", :rel => 'nofollow'
   / 
-  / .comments
-  /   -@puzzle.comments.each do |comment|
-  /     = render :partial => "comments/comment", :object => comment, :locals => {:source => source, :mini => true}
-  / .clear
-  / .forms
-  /   / .comment-form-question
-  /   /   -form_tag question_comments_path(@puzzle), :class => "form commentForm nestedAnswerForm", :id => "add_comment_form" do
-  /   /     -@comment = Comment.new
-  /   /     = render :partial => "comments/form", :locals => {:source => source, :commentable => @puzzle}
-  /   /     .group.navform
-  /   /       = submit_tag t("comments.shared.comment_submit"), :class => "button"
-  /   /       = t("global.or")
-  /   /       = link_to t('scaffold.cancel'), '', :class => 'cancel_comment'
+  .comments
+    -@puzzle.comments.each do |comment|
+      = render :partial => "comments/comment", :object => comment, :locals => {:source => source, :mini => true}
+  .clear
+  .forms
+    .comment-form-question
+      -form_tag puzzle_comments_path(@puzzle), :class => "form commentForm nestedAnswerForm", :id => "add_comment_form" do
+        -@comment = Comment.new
+        = render :partial => "comments/form", :locals => {:source => source, :commentable => @puzzle}
+        .group.navform
+          = submit_tag "Post Solution", :class => "button"
+          / = or
+          / = link_to t('scaffold.cancel'), '', :class => 'cancel_comment'
 
 %a{:name=>"answers"}
 #answers
@@ -173,10 +173,10 @@
     / - if @puzzle.accepted
     /   -solution = @puzzle.answer
     /   =render :partial=> "answer", :locals=> {:question => @puzzle, :answer => solution} unless solution.nil?
-    .hentry
-      -@solutions.each do |answer|
-        =render :partial=> "answer", :locals=> {:question => @puzzle, :answer => answer}
-    / =will_paginate(@solutions)
+    / .hentry
+    /   -@comments.each do |answer|
+    /     =render :partial=> "answer", :locals=> {:question => @puzzle, :answer => answer}
+    / =will_paginate(@comments)
 
 / -unless false #@puzzle.closed
 /   %a{:name=>"to_answer"}

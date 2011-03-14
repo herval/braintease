@@ -24,30 +24,30 @@
       /     Votes
       .box.answers{:class => class_for_puzzle(puzzle), :title => "" }
         .counter
-          =format_number(puzzle.answers_count)
+          =format_number(puzzle.comments_count)
         .text
           Answers
-      .box.views
-        .counter{:class => class_for_number(puzzle.views_count) }
-          =format_number(puzzle.views_count)
-        .text
-          Views
+      / .box.views
+      /   .counter{:class => class_for_number(puzzle.views_count) }
+      /     =format_number(puzzle.views_count)
+      /   .text
+      /     Views
     / puzzle Summary
     .summary
-      .left.vote-icon
-        -if true #unless puzzle.closed
-          -if logged_in? && (vote = current_user.vote_on(puzzle))
-            -if vote.value < 0
-              = image_tag "edit-delete.png"
-            -else
-              = image_tag "dialog-ok-apply.png"
-          -elsif current_user != puzzle.user
-            -form_tag votes_path, :class => "vote-up-form" do
-              .fields
-                = hidden_field_tag "voteable_type", puzzle.class.name, :id => "voteable_type_#{puzzle.id}"
-                = hidden_field_tag "voteable_id", puzzle.id, :id =>  "voteable_id_#{puzzle.id}"
-                = hidden_field_tag "source", puzzles_path, :id =>  "source_#{puzzle.id}"
-                = image_submit_tag("dialog-ok.png", :name=>"vote_up", :value=>"1", :title => "Click to vote up", :class => "quick-vote-button")
+      / .left.vote-icon
+      /   -if true #unless puzzle.closed
+      /     -if logged_in? && (vote = current_user.vote_on(puzzle))
+      /       -if vote.value < 0
+      /         = image_tag "edit-delete.png"
+      /       -else
+      /         = image_tag "dialog-ok-apply.png"
+      /     -elsif current_user != puzzle.user
+      /       -form_tag votes_path, :class => "vote-up-form" do
+      /         .fields
+      /           = hidden_field_tag "voteable_type", puzzle.class.name, :id => "voteable_type_#{puzzle.id}"
+      /           = hidden_field_tag "voteable_id", puzzle.id, :id =>  "voteable_id_#{puzzle.id}"
+      /           = hidden_field_tag "source", puzzles_path, :id =>  "source_#{puzzle.id}"
+      /           = image_submit_tag("dialog-ok.png", :name=>"vote_up", :value=>"1", :title => "Click to vote up", :class => "quick-vote-button")
 
       -cache("puzzle_on_index_#{puzzle.id}_#{I18n.locale}") do
         %h3= link_to title, puzzle_path(puzzle), :title => truncate(strip_tags(puzzle.description), :length => 200)
@@ -60,10 +60,10 @@
           /     = link_to h(tag), url_for(:controller => "puzzles", :action => "index", :tags => tag), :rel => "tag", :title => t("puzzles.tags.tooltip", :tag => tag)
 
       .owner-data
-        -if owner
-          =render :partial => "users/user_mini", :locals => {:user => owner}
+        -if puzzle.user
+          =render :partial => "users/user_mini", :locals => {:user => puzzle.user }
         -else
-          by Anonymous,
+          Anonymous,
         %strong.time_ago
           = link_to "#{time_ago_in_words(puzzle.updated_at)} ago", puzzle_path(puzzle)+"##{puzzle.id}"
         / -if puzzle.wiki

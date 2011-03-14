@@ -6,9 +6,9 @@
       
     = render :partial => "shared/layout/css"
     = render :partial => "shared/layout/javascript"
+    = include_tiny_mce_if_needed
 
     = render :partial => "shared/layout/meta"
-
 
   %body
     = render :partial => "shared/analytics"
@@ -17,7 +17,7 @@
       #header
         #main-bar{:class => @active_tab}
           #logo{:style => "min-height: 63px"}
-            = link_to image_tag("default_logo.png", :class => "group_logo"), "http://braintea.se"
+            = link_to image_tag("default_logo.png", :class => "group_logo"), "/"
           = render :partial => "shared/user_navigation"
           .clear
 
@@ -26,7 +26,7 @@
             #announcement
               #announcement_message
                 -announcements.each do |announcement|
-                  =announcement.message
+                  =raw(announcement.message)
               =link_to "Close", hide_announcements_path, :id => "hide_announcement"
               .clear
 
@@ -39,7 +39,7 @@
               .clear
             .content
               %p.markdown
-                = show_flash_messages(:class => "flash")
+                = raw(show_flash_messages(:class => "flash"))
 
               / = render :partial => "shared/ads/content_ads"
               .inner
