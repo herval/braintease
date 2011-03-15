@@ -1,10 +1,17 @@
 Codekata::Application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "session"} do #, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
+  #   get 'sign_in', :to => 'session#new', :as => :new_user_session
+    get 'logout', :to => 'session#destroy', :as => :destroy_user_session
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
+
+  match '/users/auth/:provider/callback', :to => 'session#create'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
@@ -33,10 +40,6 @@ Codekata::Application.routes.draw do
   
   resources :users do
     resource :comments
-    collection do
-      get 'logout'
-      get 'login'
-    end
   end
   
   resources :puzzles do
@@ -45,6 +48,8 @@ Codekata::Application.routes.draw do
       get 'unanswered'
     end
   end
+  
+  resource :session
     
   resource :votes
 

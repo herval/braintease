@@ -7,6 +7,6 @@ class UsersController < ApplicationController
   end
   
   def show
-    redirect_to User.find(params[:id]).account_url
+    # redirect_to User.find(params[:id]).account_url
   end
 end

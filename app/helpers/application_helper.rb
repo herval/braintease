@@ -20,6 +20,18 @@ module ApplicationHelper
     current_user?
   end
   
+  def current_user?
+    user_signed_in?
+  end
+  
+  def twitter_login_button
+    link_to(image_tag("/images/omnisocial/signin_twitter.png"), user_omniauth_authorize_path(:twitter))
+  end
+
+  def facebook_login_button
+    link_to(image_tag("/images/omnisocial/signin_facebook.png"), user_omniauth_authorize_path(:facebook))
+  end
+  
 
   def render_page_links(text, options = {})
     in_controller = respond_to?(:logged_in?)
