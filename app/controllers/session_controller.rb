@@ -34,7 +34,10 @@ class SessionController < Devise::OmniauthCallbacksController
             #sign_in_and_redirect(authentication.user, :event => :authentication)
           else
             #create a new user
-            user = User.new
+            if omniauth['user_info']['email']
+              user = User.find_by_email(omniauth['user_info']['email'])
+            end
+            user ||= User.new
             user.apply_omniauth(omniauth)
             #user.confirm! #unless user.email.blank?
     

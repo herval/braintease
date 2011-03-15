@@ -40,7 +40,7 @@ Devise.setup do |config|
   config.stretches = 10
   
   config.omniauth :twitter, 'KLJVREAFxCd3ogPzMFm1LA', 'rQLJG8K8dH9q40r8tdgLqDedflvYLmDKoLDXiOClcck'
-  config.omniauth :facebook, '139582682764284', '1d80803fca15a17c16219ea6d27218ed'
+  config.omniauth :facebook, '139582682764284', '1d80803fca15a17c16219ea6d27218ed', {:scope => 'publish_stream,email,offline_access'}
 
 
   # Define which will be the encryption algorithm. Devise also supports encryptors

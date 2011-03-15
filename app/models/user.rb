@@ -70,6 +70,9 @@ class User < ActiveRecord::Base
     # 
     # # Update your status
     # Twitter.update("I'm tweeting from the Twitter Ruby Gem!")
+    
+    # user = FbGraph::User.me(ACCESS_TOKEN)
+    # user.feed!(:message => "hello world!", :link => "", :description => "descr", :name => "braintea.se")
   end
   
   def from_twitter?
