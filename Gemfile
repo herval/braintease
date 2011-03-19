@@ -4,8 +4,10 @@ gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'omnisocial', :git => 'git://github.com/herval/omnisocial.git'
 gem 'mysql2'
 gem 'jquery-rails', '>= 0.2.6'
