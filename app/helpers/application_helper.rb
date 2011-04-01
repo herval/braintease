@@ -103,16 +103,16 @@ module ApplicationHelper
         elsif options[:textilize]
           text = textilize(msg)
         end
-        flash_text = content_tag('p', text)
-        messages << content_tag('li', flash_text, :class => key)
+        flash_text = content_tag('p', text.html_safe)
+        messages << content_tag('li', flash_text.html_safe, :class => key)
       end
 
-      content_tag('ul', messages.join("\n"), :class => "message "+key.to_s) unless messages.empty?
+      out << content_tag('ul', messages.join("\n").html_safe, :class => "message "+key.to_s) unless messages.empty?
     end
 
     attrs = {:id => options[:id]} if options[:id]
     attrs[:class] = options[:class] if options[:class]
     return nil if out.empty?
-    content_tag('div', out.join("\n"), attrs)
+    content_tag('div', out.join("\n").html_safe, attrs).html_safe
   end
 end

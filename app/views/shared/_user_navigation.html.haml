@@ -1,12 +1,16 @@
 %ul
   %li.questions
-    =link_to "Puzzles", puzzles_path
+    =link_to "All Puzzles", puzzles_path
   / %li.tags
   /   =link_to t("layouts.application.tags"), tags_questions_path
   / %li.users
   /   =link_to "Users", users_path
   / %li.badges
   /   =link_to t("layouts.application.badges"), badges_path
+  %li.unanswered
+    =link_to "Programming", programming_puzzles_path
+  %li.unanswered
+    =link_to "General", general_puzzles_path
   %li.unanswered
     =link_to "Unanswered", unanswered_puzzles_path
   / %li.pages.last

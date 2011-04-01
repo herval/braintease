@@ -40,6 +40,13 @@
 /   .group
 /     = f.check_box :adult_content, :class => "checkbox"
 /     = f.label :adult_content, t(".adult_content"), :class => "radio"
+.group
+  = f.check_box :programming, :class => "checkbox"
+  = f.label :programming, "This is a programming puzzle (solutions require code)", :class => "radio"
+
+.group
+  = f.check_box :share, :class => "checkbox", :checked => true
+  = f.label :share, "Share on my social networks after posted", :class => "radio"
 
 / -if !@puzzle.new?
 /   .group

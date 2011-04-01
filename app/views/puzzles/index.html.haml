@@ -6,7 +6,7 @@
 
 -content_for :subtabs do
   .navtitle
-    Programming Puzzles
+    Puzzles
     -if @questions
       == (#{@questions.total_entries})
 
@@ -39,6 +39,7 @@
 
 /Questions
 %ul.items#questions
+
   -if @puzzles.empty?
     %li.highlight
       No Puzzle registered

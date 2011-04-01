@@ -46,6 +46,8 @@ Codekata::Application.routes.draw do
     resource :comments
     collection do
       get 'unanswered'
+      get 'general'
+      get 'programming'
     end
   end
   

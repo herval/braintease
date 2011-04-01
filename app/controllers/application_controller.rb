@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   protected
   
   def require_login
-    redirect_to login_users_path if !user_signed_in?
+    if !user_signed_in?
+      flash[:error] = "You must signup before you can post a puzzle"
+      redirect_to "/" 
+    end
   end
 end

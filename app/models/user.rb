@@ -61,18 +61,21 @@ class User < ActiveRecord::Base
   end
   
   def update_status(message)
-    # Twitter.configure do |config|
-    #   config.consumer_key = YOUR_CONSUMER_KEY
-    #   config.consumer_secret = YOUR_CONSUMER_SECRET
-    #   config.oauth_token = YOUR_OAUTH_TOKEN
-    #   config.oauth_token_secret = YOUR_OAUTH_TOKEN_SECRET
+    # if from_twitter?
+    #   Twitter.configure do |config|
+    #     config.consumer_key = Devise.omniauth_configs[:twitter].args[0]
+    #     config.consumer_secret = Devise.omniauth_configs[:twitter].args[1]
+    #     config.oauth_token = self.user_tokens.first.token
+    #     config.oauth_token_secret = self.user_tokens.first.token_secret
+    #   end    
+    #   Twitter.update(message)
+    # else
+    #   user = FbGraph::User.me(self.user_tokens.first.token)
+    #   user.feed!(:message => message, :link => "", :description => "", :name => "braintea.se")
     # end
-    # 
-    # # Update your status
-    # Twitter.update("I'm tweeting from the Twitter Ruby Gem!")
-    
-    # user = FbGraph::User.me(ACCESS_TOKEN)
-    # user.feed!(:message => "hello world!", :link => "", :description => "descr", :name => "braintea.se")
+    p "*" * 10
+    p message
+    p "*" * 10
   end
   
   def from_twitter?
@@ -81,6 +84,13 @@ class User < ActiveRecord::Base
   
   def from_facebook?
     self.user_tokens.first.provider == 'facebook'
+  end
+  
+  # TODO move somewhere else
+  def self.shorten_url(url)
+    @bitly ||= Bitly.new('herval', 'R_bbe9910ef98304899a26c131508d31c5')
+    page_url = @bitly.shorten(url)
+    page_url.shorten
   end
   
   # def password_required?

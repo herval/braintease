@@ -1,5 +1,5 @@
 /* incase an inverted custom gradient isn't specified */
-/* line 177, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 177, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 .fancy-button-reset-base-class, #main-bar ul li.ask_question, a.request_group, #quick_question .ask_question, #search_box .search, a.follow_link, a.unfollow_link {
   font-family: "Lucida Grande", Lucida, Arial, sans-serif;
   background: url('/images/button_bg.png?1299788655') repeat-x bottom left;
@@ -12,12 +12,12 @@
   border-style: solid;
   font-weight: bold;
 }
-/* line 165, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 165, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 .fancy-button-reset-base-class::-moz-focus-inner, #main-bar ul li.ask_question::-moz-focus-inner, a.request_group::-moz-focus-inner, #quick_question .ask_question::-moz-focus-inner, #search_box .search::-moz-focus-inner, a.follow_link::-moz-focus-inner, a.unfollow_link::-moz-focus-inner {
   border: none;
   padding: 0;
 }
-/* line 168, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 168, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 .fancy-button-reset-base-class:focus, #main-bar ul li.ask_question:focus, a.request_group:focus, #quick_question .ask_question:focus, #search_box .search:focus, a.follow_link:focus, a.unfollow_link:focus {
   outline: none;
 }
@@ -245,11 +245,11 @@ ul.items li.item.lite .box .counter {
   margin-right: 20px;
   margin-rigth: 2%;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #main-bar ul li.ask_question, #main-bar ul li.ask_question:visited {
   color: white;
 }
-/* line 31, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 31, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #main-bar ul li.ask_question:hover, #main-bar ul li.ask_question:focus {
   background-color: #00a1f2;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #40bfff), color-stop(100%, #008dd3));
@@ -258,11 +258,11 @@ ul.items li.item.lite .box .counter {
   border-color: #006ea5;
   text-shadow: #004c72 0px 1px 1px;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #main-bar ul li.ask_question:hover, #main-bar ul li.ask_question:hover:visited, #main-bar ul li.ask_question:focus, #main-bar ul li.ask_question:focus:visited {
   color: white;
 }
-/* line 36, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 36, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #main-bar ul li.ask_question:active {
   background-color: #0097e2;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #0094dc), color-stop(40%, #009eec), color-stop(85%, #009eec), color-stop(100%, #11b1ff));
@@ -275,7 +275,7 @@ ul.items li.item.lite .box .counter {
   -o-box-shadow: #0079b4 0 0.08em 0.1em 1px inset;
   box-shadow: #0079b4 0 0.08em 0.1em 1px inset;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #main-bar ul li.ask_question:active, #main-bar ul li.ask_question:active:visited {
   color: white;
 }
@@ -768,11 +768,11 @@ a.request_group {
   margin-top: 20px;
   float: right;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.request_group, a.request_group:visited {
   color: white;
 }
-/* line 31, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 31, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.request_group:hover, a.request_group:focus {
   background-color: #23ab28;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #a9cdab), color-stop(10%, #6fab72), color-stop(50%, #477948), color-stop(50%, #416f42), color-stop(100%, #548f55));
@@ -781,11 +781,11 @@ a.request_group:hover, a.request_group:focus {
   border-color: #305231;
   text-shadow: #0d410f 0px 1px 1px;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.request_group:hover, a.request_group:hover:visited, a.request_group:focus, a.request_group:focus:visited {
   color: white;
 }
-/* line 36, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 36, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.request_group:active {
   background-color: #219f23;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #477949), color-stop(30%, #4b804c), color-stop(50%, #447345), color-stop(50%, #3e693f), color-stop(100%, #569358));
@@ -798,7 +798,7 @@ a.request_group:active {
   -o-box-shadow: #365c37 0 0.08em 0.1em 1px inset;
   box-shadow: #365c37 0 0.08em 0.1em 1px inset;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.request_group:active, a.request_group:active:visited {
   color: white;
 }
@@ -950,11 +950,11 @@ a.request_group:visited, a.request_group:link {
   border-width: 2px;
   float: right;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #quick_question .ask_question, #quick_question .ask_question:visited {
   color: white;
 }
-/* line 31, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 31, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #quick_question .ask_question:hover, #quick_question .ask_question:focus {
   background-color: #f06000;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ffc29a), color-stop(10%, #ff8b3e), color-stop(50%, #e05a00), color-stop(50%, #d15400), color-stop(100%, #ff6905));
@@ -963,11 +963,11 @@ a.request_group:visited, a.request_group:link {
   border-color: #a34100;
   text-shadow: #712d00 0px 1px 1px;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #quick_question .ask_question:hover, #quick_question .ask_question:hover:visited, #quick_question .ask_question:focus, #quick_question .ask_question:focus:visited {
   color: white;
 }
-/* line 36, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 36, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #quick_question .ask_question:active {
   background-color: #e05a00;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #e05a00), color-stop(30%, #ea5e00), color-stop(50%, #d55600), color-stop(50%, #c65000), color-stop(100%, #ff6d09));
@@ -980,7 +980,7 @@ a.request_group:visited, a.request_group:link {
   -o-box-shadow: #b34700 0 0.08em 0.1em 1px inset;
   box-shadow: #b34700 0 0.08em 0.1em 1px inset;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #quick_question .ask_question:active, #quick_question .ask_question:active:visited {
   color: white;
 }
@@ -1045,11 +1045,11 @@ a.request_group:visited, a.request_group:link {
   border-width: 2px;
   float: right;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #search_box .search, #search_box .search:visited {
   color: white;
 }
-/* line 31, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 31, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #search_box .search:hover, #search_box .search:focus {
   background-color: #16b716;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #a1d5a1), color-stop(10%, #61b961), color-stop(50%, #3b843b), color-stop(50%, #367936), color-stop(100%, #469c46));
@@ -1058,11 +1058,11 @@ a.request_group:visited, a.request_group:link {
   border-color: #275927;
   text-shadow: #084508 0px 1px 1px;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #search_box .search:hover, #search_box .search:hover:visited, #search_box .search:focus, #search_box .search:focus:visited {
   color: white;
 }
-/* line 36, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 36, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #search_box .search:active {
   background-color: #15aa15;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #3c843c), color-stop(30%, #3f8b3f), color-stop(50%, #387d38), color-stop(50%, #347334), color-stop(100%, #48a048));
@@ -1075,7 +1075,7 @@ a.request_group:visited, a.request_group:link {
   -o-box-shadow: #2c642c 0 0.08em 0.1em 1px inset;
   box-shadow: #2c642c 0 0.08em 0.1em 1px inset;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 #search_box .search:active, #search_box .search:active:visited {
   color: white;
 }
@@ -1230,11 +1230,11 @@ a.follow_link {
   border-width: 1px;
   float: right;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link, a.follow_link:visited {
   color: white;
 }
-/* line 31, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 31, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link:hover, a.follow_link:focus {
   background-color: #d85d00;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ff8325), color-stop(100%, #b95000));
@@ -1243,11 +1243,11 @@ a.follow_link:hover, a.follow_link:focus {
   border-color: #8c3c00;
   text-shadow: #592600 0px 1px 1px;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link:hover, a.follow_link:hover:visited, a.follow_link:focus, a.follow_link:focus:visited {
   color: white;
 }
-/* line 36, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 36, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link:active {
   background-color: #c85700;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #c35500), color-stop(40%, #d25c00), color-stop(85%, #d25c00), color-stop(100%, #f56b00));
@@ -1260,7 +1260,7 @@ a.follow_link:active {
   -o-box-shadow: #9b4300 0 0.08em 0.1em 1px inset;
   box-shadow: #9b4300 0 0.08em 0.1em 1px inset;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link:active, a.follow_link:active:visited {
   color: white;
 }
@@ -1309,11 +1309,11 @@ a.unfollow_link {
   border-width: 1px;
   float: right;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.unfollow_link, a.unfollow_link:visited {
   color: white;
 }
-/* line 31, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 31, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.unfollow_link:hover, a.unfollow_link:focus {
   background-color: #f00000;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #ff3e3e), color-stop(100%, #d10000));
@@ -1322,11 +1322,11 @@ a.unfollow_link:hover, a.unfollow_link:focus {
   border-color: #a30000;
   text-shadow: #710000 0px 1px 1px;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.unfollow_link:hover, a.unfollow_link:hover:visited, a.unfollow_link:focus, a.unfollow_link:focus:visited {
   color: white;
 }
-/* line 36, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 36, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.unfollow_link:active {
   background-color: #e00000;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #db0000), color-stop(40%, #ea0000), color-stop(85%, #ea0000), color-stop(100%, #ff0f0f));
@@ -1339,7 +1339,7 @@ a.unfollow_link:active {
   -o-box-shadow: #b30000 0 0.08em 0.1em 1px inset;
   box-shadow: #b30000 0 0.08em 0.1em 1px inset;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.unfollow_link:active, a.unfollow_link:active:visited {
   color: white;
 }
@@ -1388,11 +1388,11 @@ a.follow_link {
   border-width: 1px;
   float: right;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link, a.follow_link:visited {
   color: white;
 }
-/* line 31, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 31, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link:hover, a.follow_link:focus {
   background-color: #23ab28;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #6fab72), color-stop(100%, #416f42));
@@ -1401,11 +1401,11 @@ a.follow_link:hover, a.follow_link:focus {
   border-color: #305231;
   text-shadow: #0d410f 0px 1px 1px;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link:hover, a.follow_link:hover:visited, a.follow_link:focus, a.follow_link:focus:visited {
   color: white;
 }
-/* line 36, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 36, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link:active {
   background-color: #219f23;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #457647), color-stop(40%, #4b804c), color-stop(85%, #4b804c), color-stop(100%, #58965a));
@@ -1418,7 +1418,7 @@ a.follow_link:active {
   -o-box-shadow: #365c37 0 0.08em 0.1em 1px inset;
   box-shadow: #365c37 0 0.08em 0.1em 1px inset;
 }
-/* line 116, ../../../../../../.rvm/gems/ree-1.8.7-2010.02/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
+/* line 116, ../../../../../../.rvm/gems/ruby-1.9.2-p136/gems/fancy-buttons-1.0.6/lib/stylesheets/_fancy-buttons.sass */
 a.follow_link:active, a.follow_link:active:visited {
   color: white;
 }

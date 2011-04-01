@@ -38,7 +38,7 @@
               .clear
             .content
               %p.markdown
-                = raw(show_flash_messages(:class => "flash"))
+                = show_flash_messages(:class => "flash")
 
               / = render :partial => "shared/ads/content_ads"
               .inner

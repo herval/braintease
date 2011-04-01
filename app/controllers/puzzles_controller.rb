@@ -12,6 +12,16 @@ class PuzzlesController < ApplicationController
     render 'index'
   end
   
+  def programming
+    @puzzles = Puzzle.all(:conditions => {:programming => true}).paginate(:page => params[:page])
+    render 'index'
+  end
+  
+  def general
+    @puzzles = Puzzle.all(:conditions => {:programming => false}).paginate(:page => params[:page])
+    render 'index'
+  end
+  
   def show
     @puzzle = Puzzle.find(params[:id])
     @comments = @puzzle.comments

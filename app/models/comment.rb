@@ -12,4 +12,15 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+  
+  after_create :publish_social
+
+  attr_accessor :share
+  
+  def publish_social
+    if self.share == "1" && commentable.is_a?(Puzzle)
+      path = "http://braintea.se/puzzles/#{self.commentable.id}-#{self.commentable.url}"
+      self.user.update_status("I just published a solution to a puzzle on braintea.se - check it out at #{User.shorten_url(path)}")
+    end
+  end
 end

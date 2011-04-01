@@ -16,6 +16,8 @@ gem "compass-colors"
 gem 'will_paginate'
 gem 'dynamic_form'
 gem 'acts_as_commentable'
+gem 'bitly'
+gem 'stringex'
 # gem 'textile'
 # gem 'markdown'
 gem 'capistrano'
