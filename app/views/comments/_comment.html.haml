@@ -51,8 +51,8 @@
 
     .controls
       .actions
-        - if logged_in? && current_user != comment.user
-          = link_to t("comments.shared.reply"), "#", :class => "addNestedAnswer reply", 'data-author' => comment.user.login
+        /- if logged_in? && current_user != comment.user
+        /  = link_to "comment this solution", "#", :class => "addNestedAnswer reply", 'data-author' => comment.user.login
         / -if logged_in? && (current_user.can_modify?(comment) || current_user.mod_of?(current_group))
         /   -case comment.commentable_type
         /     -when "Question"
@@ -66,4 +66,5 @@
         /     -when "Answer"
         /       = link_to t("scaffold.destroy"), question_answer_comment_path(comment.commentable.question, comment.commentable, comment, :source => source), :confirm => t("scaffold.sure", :model => "comment"), :method => :delete
     .clear
+    %br
 

@@ -377,49 +377,50 @@ input.checkbox {
   -webkit-border-radius: 3px;
   text-align: center;
   margin: 0 auto 5px;
-  width: 80%;
+  font-weight: bold;
+  width: 100%;
 }
-/* line 296, ../../../../app/stylesheets/themes/blue/_base.sass */
+/* line 297, ../../../../app/stylesheets/themes/blue/_base.sass */
 .flash .message p {
   margin: 8px;
 }
-/* line 299, ../../../../app/stylesheets/themes/blue/_base.sass */
+/* line 300, ../../../../app/stylesheets/themes/blue/_base.sass */
 .flash .error {
   border: 1px solid #ffbbbb;
   background-color: #ffdddd;
 }
-/* line 303, ../../../../app/stylesheets/themes/blue/_base.sass */
+/* line 304, ../../../../app/stylesheets/themes/blue/_base.sass */
 .flash .warning {
   border: 1px solid #fffaaa;
   background-color: #ffffcc;
 }
-/* line 307, ../../../../app/stylesheets/themes/blue/_base.sass */
+/* line 308, ../../../../app/stylesheets/themes/blue/_base.sass */
 .flash .notice {
   border: 1px solid #ddddff;
   background-color: #eeeeff;
 }
 
-/* line 312, ../../../../app/stylesheets/themes/blue/_base.sass */
+/* line 313, ../../../../app/stylesheets/themes/blue/_base.sass */
 ul.list li {
   border-bottom-color: #f0f0ee;
 }
-/* line 315, ../../../../app/stylesheets/themes/blue/_base.sass */
+/* line 316, ../../../../app/stylesheets/themes/blue/_base.sass */
 ul.list li .item .avatar {
   border-color: #f0f0ee;
   margin: 3px 10px 0 0;
 }
-/* line 319, ../../../../app/stylesheets/themes/blue/_base.sass */
+/* line 320, ../../../../app/stylesheets/themes/blue/_base.sass */
 ul.list li .left {
   padding: 5px 5px;
 }
 
-/* line 323, ../../../../app/stylesheets/themes/blue/_base.sass */
+/* line 324, ../../../../app/stylesheets/themes/blue/_base.sass */
 #box .block {
   background: #f5f5f5;
   border: 1px solid #dddddd;
   border-radius: 10px;
 }
-/* line 328, ../../../../app/stylesheets/themes/blue/_base.sass */
+/* line 329, ../../../../app/stylesheets/themes/blue/_base.sass */
 #box .block h2 {
   background: #576c82;
   color: #f5f5f5;

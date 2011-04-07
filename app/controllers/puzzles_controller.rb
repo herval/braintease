@@ -25,6 +25,21 @@ class PuzzlesController < ApplicationController
   def show
     @puzzle = Puzzle.find(params[:id])
     @comments = @puzzle.comments
+    
+    msg = if @puzzle.comments.blank?
+      "Be the first to post a solution to this puzzle!"
+    else
+      "There are #{@puzzle.comments.size} solutions posted to this puzzle."
+    end
+    
+    if current_user && @comments.collect(&:user).include?(current_user)
+      msg += "<br>Log in or signup to see people's solutions!"
+    else
+      msg += "<br>Log in or signup to see people's solutions or post your own!"
+    end
+    
+    flash.now[:warning] = msg.html_safe
+
   end
 
   def create

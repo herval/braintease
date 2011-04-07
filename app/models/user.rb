@@ -61,21 +61,26 @@ class User < ActiveRecord::Base
   end
   
   def update_status(message)
-    # if from_twitter?
-    #   Twitter.configure do |config|
-    #     config.consumer_key = Devise.omniauth_configs[:twitter].args[0]
-    #     config.consumer_secret = Devise.omniauth_configs[:twitter].args[1]
-    #     config.oauth_token = self.user_tokens.first.token
-    #     config.oauth_token_secret = self.user_tokens.first.token_secret
-    #   end    
-    #   Twitter.update(message)
-    # else
-    #   user = FbGraph::User.me(self.user_tokens.first.token)
-    #   user.feed!(:message => message, :link => "", :description => "", :name => "braintea.se")
-    # end
-    p "*" * 10
-    p message
-    p "*" * 10
+    if from_twitter?
+      Twitter.configure do |config|
+        config.consumer_key = Devise.omniauth_configs[:twitter].args[0]
+        config.consumer_secret = Devise.omniauth_configs[:twitter].args[1]
+        config.oauth_token = self.user_tokens.first.token
+        config.oauth_token_secret = self.user_tokens.first.token_secret
+      end    
+      Twitter.update(message)
+    else
+      user = FbGraph::User.me(self.user_tokens.first.token)
+      user.feed!(:message => message, :link => "", :description => "", :name => "braintea.se")
+    end
+  end
+  
+  def account_url
+    if from_twitter?
+      "http://www.twitter.com/#{self.login}"
+    elsif from_facebook?
+      "http://www.facebook.com/profile.php?id=#{self.user_tokens.first.uid}"
+    end
   end
   
   def from_twitter?

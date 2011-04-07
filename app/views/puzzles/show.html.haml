@@ -140,11 +140,10 @@
 
   / - if logged_in?
   /   = link_to t("comments.shared.add_comment"), new_question_comment_path(@puzzle), :id => "add_comment_link", :rel => 'nofollow'
-  / 
-  .comments
-    -@puzzle.comments.each do |comment|
-      = render :partial => "comments/comment", :object => comment, :locals => {:source => source, :mini => true}
+  /
+  
   .clear
+  
   .forms
     .comment-form-question
       -form_tag puzzle_comments_path(@puzzle), :class => "form commentForm nestedAnswerForm", :id => "add_comment_form" do
@@ -154,6 +153,12 @@
           = submit_tag "Post Solution", :class => "button"
           / = or
           / = link_to t('scaffold.cancel'), '', :class => 'cancel_comment'
+    
+  .clear
+     
+  .comments
+    -@puzzle.comments.each do |comment|
+      = render :partial => "comments/comment", :object => comment, :locals => {:source => source, :mini => true}
 
 %a{:name=>"answers"}
 #answers
@@ -194,25 +199,35 @@
 /     .clear
 
 -content_for :sidebar do
-  .block
-    / %h3
-    /   = t(".share")
-    / .content
-    /   / %ul.share
-    /   /   / %li
-    /   /   /   = render :partial => "identica"
-    /   /   / - if current_group.domain != AppConfig.domain
-    /   /   /   %li
-    /   /   /     = render :partial => "shapado"
-    /   /   %li
-    /   /     = render :partial => "twitter"
-    /   /   / %li
-    /   /   /   = render :partial => "linkedin"
-    /   /   / %li
-    /   /   /   = render :partial => "think"
-    /   /   %li
-    /   /     = render :partial => "facebook"
-    / .clear
+
+  = render :partial => 'shared/default_teaser'
+
+  .block.notice
+    %h4=link_to "Solved by", "#"
+    = @comments.collect(&:user).uniq.collect{ |u| user_pic_link(u) }.join.html_safe
+    .clear
+    %br
+
+
+  / .block
+  /   %h3
+  /     Share this Puzzle
+  /   .content
+  /     %ul.share
+  /       /   / %li
+  /       /   /   = render :partial => "identica"
+  /       /   / - if current_group.domain != AppConfig.domain
+  /       /   /   %li
+  /       /   /     = render :partial => "shapado"
+  /       %li
+  /         = render :partial => "twitter"
+  /       / %li
+  /       /   /   = render :partial => "linkedin"
+  /       /   / %li
+  /       /   /   = render :partial => "think"
+  /       %li
+  /         = render :partial => "facebook"
+  /   .clear
 
   / - if logged_in? && (current_user.mod_of?(current_group) || current_user.can_view_offensive_counts_on?(current_group))
   /   -unless @puzzle.flags.count == 0
@@ -283,3 +298,8 @@
   /         -related_questions.each do |rq|
   /           %li
   /             = link_to h(rq.title), puzzle_path(rq), :title => truncate(strip_tags(rq.body), :length => 200)
+
+- javascript_tag do
+  - if !logged_in?
+    $(".comments").hide();
+    $(".comment-form-question").hide();
