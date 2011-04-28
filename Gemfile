@@ -27,6 +27,7 @@ gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem "fb_graph"
+gem 'exception_notification', :require => 'exception_notifier'
 
 if RUBY_PLATFORM !~ /mswin|mingw/
   gem "rdiscount"
